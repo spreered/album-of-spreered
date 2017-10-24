@@ -1,0 +1,16 @@
+<div class="container show-photo">
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <div class="img-show"><%= image_tag @photo.file_location.url %></div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="show-info">
+        <div class="title"><%=@photo.title%><%= link_to fa_icon('edit'), edit_photo_path(@photo), class:"show-edit"%></div>
+
+        <div class="description"><%=@photo.description%></div>
+        <div class="date"><%=@photo.date%></div>
+
+      </div>
+    </div>
+  </div>
+</div>

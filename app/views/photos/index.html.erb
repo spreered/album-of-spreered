@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="photo-list">
+    <% @photos.each do |photo| %>
+      <div class="item"> 
+        <div class="img-thumbnail img-box"><%=image_tag photo.file_location.url, class:"img-pos" %>
+          <div class="item-control">
+            <%=link_to fa_icon("eye"), photo_path(photo),class:"fa-size" %>
+            <%= link_to fa_icon("edit"), edit_photo_path(photo) ,class:"fa-size"%>
+            <%= link_to fa_icon("times"), photo_path(photo), class:"fa-size",method: :delete, data:{confirm:"Are you sure?"} %> 
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-title"><%=link_to photo.title, photo_path(photo)%></div>
+          <div class="item-date"><%=photo.date%></div> 
+        </div>
+      </div>
+    <%end%>
+    <div class="item">
+      <div class="img-box gray-background">
+      <%= link_to fa_icon("plus-circle"), new_photo_path, class:"new-photo-btn pos-set-middle"%>
+      </div>
+    </div>
+  </div>
+
+</div>
